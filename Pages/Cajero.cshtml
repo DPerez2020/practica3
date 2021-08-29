@@ -1,0 +1,20 @@
+﻿@page
+@model practica3.Pages.CajeroModel
+@{
+}
+<h1>Cajero</h1>
+<h4>Dinero disponible @Model.totalDisponible</h4>
+<form method="post" class="form-group form-inline">
+    <label for="cantidadARetirar" class="form-text col-form-label">introduzca el monto</label>
+    <input type="number" class="form-control" id="cantidadARetirar" name="cantidadARetirar" value="0" />
+    @if (Model.error) {
+        <span class="alert-danger">@Model.mensaje</span>    
+    }
+    <input type="submit" class="btn btn-success" value="Enviar" />
+</form>
+
+<ul>
+    @foreach (var item in Model.billetes) {        
+    <li>Billetes de @item.valor: @item.CantidadUsados </li>
+    }
+</ul>
